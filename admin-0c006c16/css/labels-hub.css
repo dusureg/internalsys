@@ -1,0 +1,85 @@
+/* css/labels-hub.css  -  the Labels screen (labels of every kind, receipts, the designer): the list, the preview sheet, the look of a designed label and of a receipt. Read only when the screen is opened. */
+
+/* ---------------- the screen ---------------- */
+.lk-scanrow{display:flex;gap:8px;flex-wrap:wrap}
+.lk-scanrow input{flex:1 1 220px;min-width:0}
+.lk-found:empty{display:none}
+.lk-hit{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--card-2)}
+.lk-list{max-height:340px;overflow:auto;border:1px solid var(--line);border-radius:10px;padding:4px}
+.lk-item{display:flex;align-items:center;gap:10px;padding:4px 8px;border-radius:8px;min-height:44px;cursor:pointer}
+.lk-item:hover{background:var(--card-2)}
+.lk-item-t{display:flex;flex-direction:column;min-width:0;flex:1}
+.lk-item-t b{overflow-wrap:anywhere;font-weight:600}
+.lk-amt{font-size:13px;white-space:nowrap}
+#lkFields{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));column-gap:16px}
+.lk-frow{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;min-height:44px}
+.lk-xrow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:6px 0;border-bottom:1px solid var(--line)}
+.lk-xrow input[type=text]{flex:1 1 200px;min-width:0}
+#lkDesigner input[type=color]{width:100%;min-height:44px;padding:2px;border-radius:8px;background:var(--input);border:1px solid var(--line)}
+.lk-area{overflow-x:auto;max-width:100%}
+.lk-sheet{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start;padding:4px}
+.lk-sheet[data-sample="1"]{opacity:.75}
+
+/* ---------------- a designed label (it also has the class lbl of the report stylesheet, which sets its size) ---------------- */
+.lk{--sc:1;--lk-bg:#fff;--lk-fg:#000;--lk-ac:#555;--lk-st:#000;background:var(--lk-bg);color:var(--lk-fg);border:.22em solid var(--lk-ac);border-radius:2px;font-size:calc(var(--k) * var(--u) * var(--sc) * 1mm)}
+.lk[data-border=none]{border:0}
+.lk[data-border=thick]{border-width:.7em}
+.lk[data-border=round]{border-radius:1.6em}
+.lk .lk-strong{color:var(--lk-st)}
+.lk[data-align=center] .lbl-text{text-align:center;align-items:center}
+.lk[data-align=center] .lbl-top,.lk[data-align=center] .lbl-eg{justify-content:center;align-items:center}
+.lk .lbl-qrbox{width:calc(var(--k) * var(--sc) * 10mm);height:calc(var(--k) * var(--sc) * 10mm);background:#fff}
+.lk.lbl-strip .lbl-qrbox{width:calc(var(--k) * var(--sc) * 19mm);height:calc(var(--k) * var(--sc) * 19mm)}
+.lk .lbl-barbox{background:#fff;padding:.25em .5em}
+.lk-x{font-size:1.5em;overflow-wrap:anywhere;line-height:1.2}
+.lk-x-s{font-size:1.2em}.lk-x-l{font-size:2.1em}
+.lk-x.b{font-weight:700}.lk-x.i{font-style:italic}
+
+/* ---------------- a receipt ---------------- */
+.lk-rc{--sc:1;--k:1;box-sizing:border-box;width:calc(var(--k) * var(--w));min-height:calc(var(--k) * var(--hh, 0mm));font-size:calc(var(--k) * var(--sc) * 3.4mm);line-height:1.35;padding:1.6em;display:flex;flex-direction:column;gap:1em;flex:0 0 auto;
+  background:var(--lk-bg);color:var(--lk-fg);border:.1em solid var(--lk-ac);border-radius:.4em;overflow-wrap:anywhere}
+.lk-rc[data-border=none]{border:0}
+.lk-rc[data-border=thick]{border-width:.3em}
+.lk-rc[data-border=round]{border-radius:1.4em}
+.lk-rc .mono{font-family:ui-monospace,Menlo,Consolas,monospace;direction:ltr;unicode-bidi:isolate}
+.lk-rc-head{display:flex;justify-content:space-between;align-items:flex-start;gap:1em;border-bottom:.12em solid var(--lk-ac);padding-bottom:.8em}
+.lk-rc-logo{max-width:45%}
+.lk-rc-logo .lbl-logoimg{max-height:3.4em}
+.lk-rc-logo .lbl-mark{height:3em;width:3em}
+.lk-rc-logo .lbl-brand{font-size:1.5em}
+.lk-rc-title{display:flex;flex-direction:column;align-items:flex-end;gap:.15em;text-align:end}
+.lk-rc-title b{font-size:1.35em;color:var(--lk-st)}
+.lk-rc-meta{display:grid;gap:.35em}
+.lk-rc-row{display:flex;gap:.8em;justify-content:space-between}
+.lk-rc-k{opacity:.7;flex:0 0 auto}
+.lk-rc-v{text-align:end;font-weight:600;min-width:0}
+.lk-rc-lines{border-top:.08em solid var(--lk-ac);border-bottom:.08em solid var(--lk-ac);padding:.6em 0;display:grid;gap:.3em}
+.lk-rc-line{display:flex;justify-content:space-between;gap:1em}
+.lk-rc-line.sub{opacity:.8}
+.lk-rc-line.b{font-weight:700}
+.lk-rc-line.total{font-weight:700;font-size:1.25em;border-top:.08em solid var(--lk-ac);padding-top:.4em;margin-top:.3em;color:var(--lk-st)}
+.lk-rc-notes{font-size:.95em;opacity:.85;white-space:pre-wrap}
+.lk-rc-sign{display:grid;grid-template-columns:1fr 1fr;gap:1.6em;margin-top:1.2em}
+.lk-rc-sign div{border-top:.08em solid var(--lk-fg);padding-top:.3em;font-size:.9em;opacity:.8}
+.lk-rc-extra{display:grid;gap:.3em}
+.lk-rc-codes{display:flex;align-items:center;gap:1em}
+.lk-rc .lbl-qrbox{flex:0 0 auto;width:5em;height:5em;background:#fff}
+.lk-rc .lbl-barbox{flex:1 1 auto;height:3.2em;max-width:22em;background:#fff;padding:.25em .5em}
+.lk-rc[data-paper=roll80]{padding:1em}
+.lk-rc[data-align=center] .lk-rc-row{flex-direction:column;align-items:center;text-align:center;gap:0}
+.lk-rc[data-align=center] .lk-rc-v{text-align:center}
+
+@media (max-width:560px){.lk-sheet{gap:10px}.lk-rc{padding:1.2em}}
+
+/* ---------------- printing: one label (or receipt) per page, or labels side by side on a sheet of paper ---------------- */
+@media print{
+  .lk-area{overflow:visible !important}
+  .lk-sheet{display:block !important;gap:0;padding:0;page:lbl;opacity:1 !important}
+  .lk{--k:1 !important;break-after:page;break-inside:avoid;outline:0 !important}
+  .lk[data-border=none]{border:0}
+  .lk:last-child{break-after:auto}
+  .lk-rc{--k:1 !important;break-after:page;border-radius:0}
+  .lk-rc:last-child{break-after:auto}
+  .lk-sheet[data-mode=sheet]{display:flex !important;flex-wrap:wrap;gap:2mm;align-items:flex-start}
+  .lk-sheet[data-mode=sheet] .lk{break-after:auto;margin:0}
+}
